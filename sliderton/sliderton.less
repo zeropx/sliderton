@@ -1,0 +1,114 @@
+
+@max-width: 1100px;
+@slide_container_width:  800px;
+@slide_container_height: 300px;
+@slide_width:            @slide_container_width;
+@slide_height:           @slide_container_height;
+@nav_container_width:    300px;
+@nav_container_height:   @slide_container_height;
+@nav_item_width:         @nav_container_width;
+@nav_item_height:        100px;
+
+.gradient(@top:red, @bottom:blue)
+{
+    /* fallback (Opera) */
+    background: @bottom;
+    /* Mozilla: */
+    background: -moz-linear-gradient(top, @top, @bottom);
+    /* Chrome, Safari:*/
+    background: -webkit-gradient(linear, left top, left bottom, from(@top), to(@bottom));
+    
+}
+
+
+
+#sliderton
+{ 
+    .gradient(#000,#0B0F16);
+    width: @slide_container_width + @nav_container_width;
+    height: @nav_container_height;
+    position: relative;
+    overflow: hidden;    
+    
+    #slide-container, #slide-navigation
+    {
+        float: left;
+/*        overflow: hidden;*/
+        position: relative;
+    }
+    
+    .wrapper
+    {
+        position: absolute;
+    }
+    
+    #slide-container, .slide
+    {
+        width: @slide_container_width;
+        height: @slide_container_height;
+    }
+        
+    #slide-navigation, .slide-nav 
+    {
+        width: @nav_container_width;
+    }
+    
+    #slide-container
+    {
+        .slide
+        {
+            .gradient(green, blue)
+        }
+    }
+    
+    #slide-navigation
+    {
+        height: @nav_container_height;
+        
+        .slide-nav
+        {
+            .gradient(red, yellow);
+            height: @nav_item_height;
+        }
+        
+        .slide-nav:hover
+        {
+            cursor:pointer
+        }
+    }
+    
+    .next-button-c, .next-button
+    {
+        position: absolute;
+
+    }
+    .next-button
+    {
+        border-radius: 15px;
+        color: #FFF;
+        padding: 5px;
+        text-align: center;
+        width: 15px;
+        height: 15px;
+        top: 250px;
+        right: 140px;
+        .gradient(#7B7B7F, #1D1D16);
+    
+    }
+    
+    .next-button-c
+    {
+        top: 225px;
+        right: 125px;
+    }
+    
+    .next-button:hover
+    {
+        cursor: pointer;
+    }
+    .next-button:active
+    {
+        .gradient(#59585C, #0A0A07);
+        color: #DDD;
+    }
+}

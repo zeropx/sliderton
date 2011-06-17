@@ -1,0 +1,101 @@
+#sliderton {
+  /* fallback (Opera) */
+
+  background: #0b0f16;
+  /* Mozilla: */
+
+  background: -moz-linear-gradient(top, #000000, #0b0f16);
+  /* Chrome, Safari:*/
+
+  background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#0b0f16));
+  width: 1100px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+#sliderton #slide-container, #sliderton #slide-navigation {
+  float: left;
+  /*        overflow: hidden;*/
+
+  position: relative;
+}
+#sliderton .wrapper {
+  position: absolute;
+}
+#sliderton #slide-container, #sliderton .slide {
+  width: 800px;
+  height: 300px;
+}
+#sliderton #slide-navigation, #sliderton .slide-nav {
+  width: 300px;
+}
+#sliderton #slide-container .slide {
+  /* fallback (Opera) */
+
+  background: blue;
+  /* Mozilla: */
+
+  background: -moz-linear-gradient(top, green, blue);
+  /* Chrome, Safari:*/
+
+  background: -webkit-gradient(linear, left top, left bottom, from(green), to(blue));
+}
+#sliderton #slide-navigation {
+  height: 300px;
+}
+#sliderton #slide-navigation .slide-nav {
+  /* fallback (Opera) */
+
+  background: yellow;
+  /* Mozilla: */
+
+  background: -moz-linear-gradient(top, red, yellow);
+  /* Chrome, Safari:*/
+
+  background: -webkit-gradient(linear, left top, left bottom, from(red), to(yellow));
+  height: 100px;
+}
+#sliderton #slide-navigation .slide-nav:hover {
+  cursor: pointer;
+}
+#sliderton .next-button-c, #sliderton .next-button {
+  position: absolute;
+}
+#sliderton .next-button {
+  border-radius: 15px;
+  color: #FFF;
+  padding: 5px;
+  text-align: center;
+  width: 15px;
+  height: 15px;
+  top: 250px;
+  right: 140px;
+  /* fallback (Opera) */
+
+  background: #1d1d16;
+  /* Mozilla: */
+
+  background: -moz-linear-gradient(top, #7b7b7f, #1d1d16);
+  /* Chrome, Safari:*/
+
+  background: -webkit-gradient(linear, left top, left bottom, from(#7b7b7f), to(#1d1d16));
+}
+#sliderton .next-button-c {
+  top: 225px;
+  right: 125px;
+}
+#sliderton .next-button:hover {
+  cursor: pointer;
+}
+#sliderton .next-button:active {
+  /* fallback (Opera) */
+
+  background: #0a0a07;
+  /* Mozilla: */
+
+  background: -moz-linear-gradient(top, #59585c, #0a0a07);
+  /* Chrome, Safari:*/
+
+  background: -webkit-gradient(linear, left top, left bottom, from(#59585c), to(#0a0a07));
+  color: #DDD;
+}
