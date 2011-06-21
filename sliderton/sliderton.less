@@ -8,7 +8,7 @@
 @nav_container_height:   @slide_container_height;
 @nav_item_width:         @nav_container_width;
 @nav_item_height:        100px;
-
+ 
 .gradient(@top:red, @bottom:blue)
 {
     /* fallback (Opera) */
@@ -28,7 +28,7 @@
     width: @slide_container_width + @nav_container_width;
     height: @nav_container_height;
     position: relative;
-    overflow: hidden;    
+/*    overflow: hidden;    */
     
     #slide-container, #slide-navigation
     {
@@ -46,6 +46,7 @@
     {
         width: @slide_container_width;
         height: @slide_container_height;
+        
     }
         
     #slide-navigation, .slide-nav 
@@ -57,7 +58,11 @@
     {
         .slide
         {
-            .gradient(green, blue)
+            .gradient(green, blue);
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     }
     
@@ -65,6 +70,11 @@
     {
         height: @nav_container_height;
         
+        .wrapper
+        {
+            height: @nav_container_height;
+            width: @nav_container_width;
+        }
         .slide-nav
         {
             .gradient(red, yellow);

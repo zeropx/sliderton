@@ -19,6 +19,7 @@ jQuery.fn.extend({
     sliderton: function(options){
 
         var options =  $.extend({
+            debug: false,
             sliderton_id: "sliderton",
             slides_container_id: "slide-container",
             slides_class: "slide",
@@ -45,6 +46,8 @@ jQuery.fn.extend({
         var navSlides    = $("." + options.slides_nav_class);
         var index        = new Array();
         var nextButton;
+        var current;
+        var previous;
         
         var slideWrapperHeight = 0;
         var navWrapperHeight   = 0;
@@ -55,11 +58,36 @@ jQuery.fn.extend({
         var init = function() 
         {
 
-            /*
-            */
-            generateClones();
+       
+            // slides
+            slides.each(function(i, el){
+                
+                // index all the slides and panels
+                index[i] = {
+                    slide: slides[i],
+                    navSlide: navSlides[i]
+                };
+                
+            });
 
-            getSlideSizes();
+            for (var i=0; i < index.length; i++) 
+            {
+                // Slight navigation effect
+                $(index[i].navSlide)
+                .css({opacity: .5})
+                .hover(function() {
+                    $(this).stop().animate({opacity: 1}, 'fast');
+                }, function() {
+                    $(this).stop().animate({opacity: .5}, 'fast');
+                });
+                
+                
+            };
+            
+            current = 0;
+            $(index[current].slide).fadeIn();
+            
+            // getSlideSizes();
             
             adjustPositions();
 
@@ -73,7 +101,9 @@ jQuery.fn.extend({
         };
 
         var adjustPositions = function() {
-            navWrapper.css('top', -(navWrapperHeight / (index.length / options.nav_items_visible)));
+            position = 0;
+            offset = options.nav_item_height;
+            navWrapper.css('top', position - offset);
         };
 
         var addNextButton = function()
@@ -175,13 +205,13 @@ jQuery.fn.extend({
                 
             }, function() {
                 $(el).stop().animate({opacity: .4});
-            })
+            });
             
             el.click(function() {
                 // if not currently animating
                 if (animating() == false) 
                 {
-                    transition();
+                    cycle();
                 };
                 
             });
@@ -199,7 +229,8 @@ jQuery.fn.extend({
         
         var generateClones = function() 
         {
-            
+           
+            if (options.debug) { console.log(navSlides.length); };
             navSlides.each(function(i, el){
                 $(this)
                     .clone(true)
@@ -209,6 +240,7 @@ jQuery.fn.extend({
             
             navSlides = $("." + options.slides_nav_class);
             
+            // index slides and add some animated properties
             navSlides.each(function(i, el) {
                index[i] = $(this);
                $(this)
@@ -271,29 +303,49 @@ jQuery.fn.extend({
 
         };
 
-
-        /*
-            transition : Animates and transitions from one slide to another
-        */
-        var transition = function() 
+        var getCurrent = function() 
         {
             
-            navWrapper.stop().animate({
-                top: getNavPosition(navWrapper)
-            }, 200, function(){
-                /*
-                    Move the last item to the top
-                */
-                console.log('attempted to move slide to top');
-                alert('Need to setup so that the slide has stuff above in teh wrapper. So we need and offset of sometype clone to top for offset and bottom');
-                $("#slide-navigation .wrapper").prepend( $('.slide-nav').last() );
-            });
+            previous = current;
+            // total count, current, next
+            if (current == index.length - 1) {
+                current = 0;
+            } else {
+                current++;
+            };
+        };
+        /*
+            cycle : Animates and cycle from one slide to another
+        */
+        var cycle = function() 
+        {
             
-            slideWrapper.stop().animate({
-                top: getSlidePosition(slideWrapper)
-            }, 200, function(){
-            });
+            getCurrent();
             
+            if (options.debug) { 
+                 console.log("CURRENT: " + current + " PREVIOUS: " + previous);
+            };
+            
+            $(index[previous].slide).fadeOut();
+            $(index[current].slide).fadeIn();
+            
+            
+            var ns = $('.slide-nav');
+            newest = ns
+                .last()
+                .clone(true)
+                .addClass('slide-clone')
+                .prependTo(navWrapper)
+                .css({
+                    height: 0
+                })
+                .stop()
+                .animate({
+                    height: 100
+                }, function() {
+                    ns.last().remove();
+                    
+            });
             
             
            
