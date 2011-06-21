@@ -57,8 +57,16 @@ jQuery.fn.extend({
 
         var init = function() 
         {
-
-       
+         
+            // reverse the display order of the navigation slides. 
+            
+            navigationSlides = $(".slide-nav");
+            array = $.makeArray(navigationSlides);
+            array.reverse();       
+                 
+            $(array).appendTo(navWrapper);
+            
+            
             // slides
             slides.each(function(i, el){
                 
@@ -67,6 +75,7 @@ jQuery.fn.extend({
                     slide: slides[i],
                     navSlide: navSlides[i]
                 };
+                
                 
             });
 
@@ -81,12 +90,12 @@ jQuery.fn.extend({
                     $(this).stop().animate({opacity: .5}, 'fast');
                 });
                 
-                
             };
+            cycleNav(true);
             
             current = 0;
             $(index[current].slide).fadeIn();
-            
+         
             // getSlideSizes();
             
             adjustPositions();
@@ -222,7 +231,7 @@ jQuery.fn.extend({
         */
         var animating = function()
         {
-            a = (navWrapper.filter(':animated')).length;
+            a = ($('.slide').filter(':animated')).length;
             return a ? true : false;
         };
         
@@ -256,7 +265,6 @@ jQuery.fn.extend({
         };
         
         
-
         /*
             Calculate the total height in pixels
             for the slides and nav slides
@@ -330,6 +338,14 @@ jQuery.fn.extend({
             $(index[current].slide).fadeIn();
             
             
+            cycleNav();
+            
+            
+           
+        };
+        
+        var cycleNav = function(blinded) 
+        {
             var ns = $('.slide-nav');
             newest = ns
                 .last()
@@ -346,9 +362,6 @@ jQuery.fn.extend({
                     ns.last().remove();
                     
             });
-            
-            
-           
         };
 
         /*

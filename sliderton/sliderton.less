@@ -28,7 +28,7 @@
     width: @slide_container_width + @nav_container_width;
     height: @nav_container_height;
     position: relative;
-/*    overflow: hidden;    */
+    overflow: hidden;    
     
     #slide-container, #slide-navigation
     {
@@ -64,6 +64,10 @@
             top: 0;
             left: 0;
         }
+        .slide-1 {  .gradient(green, red); }
+        .slide-2 {  .gradient(blue, white); }
+        .slide-4 {  .gradient(black, purple); }
+        .slide-5 {  .gradient(white, red); }
     }
     
     #slide-navigation
@@ -77,14 +81,18 @@
         }
         .slide-nav
         {
-            .gradient(red, yellow);
+            a
+            {
+                display: block;
+                height: @nav_item_height;
+                width: @nav_item_width;
+                .gradient(red, yellow);
+            }
+/*            .gradient(red, yellow);*/
             height: @nav_item_height;
         }
         
-        .slide-nav:hover
-        {
-            cursor:pointer
-        }
+
     }
     
     .next-button-c, .next-button

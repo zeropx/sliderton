@@ -1,11 +1,14 @@
-#sliderton{background:#0b0f16;background:-moz-linear-gradient(top, #000000, #0b0f16);background:-webkit-gradient(linear, left top, left bottom, from(#000000), to(#0b0f16));width:1100px;height:300px;position:relative;}#sliderton #slide-container,#sliderton #slide-navigation{float:left;position:relative;}
+#sliderton{background:#0b0f16;background:-moz-linear-gradient(top, #000000, #0b0f16);background:-webkit-gradient(linear, left top, left bottom, from(#000000), to(#0b0f16));width:1100px;height:300px;position:relative;overflow:hidden;}#sliderton #slide-container,#sliderton #slide-navigation{float:left;position:relative;}
 #sliderton .wrapper{position:absolute;}
 #sliderton #slide-container,#sliderton .slide{width:800px;height:300px;}
 #sliderton #slide-navigation,#sliderton .slide-nav{width:300px;}
 #sliderton #slide-container .slide{background:blue;background:-moz-linear-gradient(top, green, blue);background:-webkit-gradient(linear, left top, left bottom, from(green), to(blue));display:none;position:absolute;top:0;left:0;}
+#sliderton #slide-container .slide-1{background:red;background:-moz-linear-gradient(top, green, red);background:-webkit-gradient(linear, left top, left bottom, from(green), to(red));}
+#sliderton #slide-container .slide-2{background:white;background:-moz-linear-gradient(top, blue, white);background:-webkit-gradient(linear, left top, left bottom, from(blue), to(white));}
+#sliderton #slide-container .slide-4{background:purple;background:-moz-linear-gradient(top, black, purple);background:-webkit-gradient(linear, left top, left bottom, from(black), to(purple));}
+#sliderton #slide-container .slide-5{background:red;background:-moz-linear-gradient(top, white, red);background:-webkit-gradient(linear, left top, left bottom, from(white), to(red));}
 #sliderton #slide-navigation{height:300px;}#sliderton #slide-navigation .wrapper{height:300px;width:300px;}
-#sliderton #slide-navigation .slide-nav{background:yellow;background:-moz-linear-gradient(top, red, yellow);background:-webkit-gradient(linear, left top, left bottom, from(red), to(yellow));height:100px;}
-#sliderton #slide-navigation .slide-nav:hover{cursor:pointer;}
+#sliderton #slide-navigation .slide-nav{height:100px;}#sliderton #slide-navigation .slide-nav a{display:block;height:100px;width:300px;background:yellow;background:-moz-linear-gradient(top, red, yellow);background:-webkit-gradient(linear, left top, left bottom, from(red), to(yellow));}
 #sliderton .next-button-c,#sliderton .next-button{position:absolute;}
 #sliderton .next-button{border-radius:15px;color:#FFF;padding:5px;text-align:center;width:15px;height:15px;top:250px;right:140px;background:#1d1d16;background:-moz-linear-gradient(top, #7b7b7f, #1d1d16);background:-webkit-gradient(linear, left top, left bottom, from(#7b7b7f), to(#1d1d16));}
 #sliderton .next-button-c{top:225px;right:125px;}
