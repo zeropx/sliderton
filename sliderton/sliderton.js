@@ -43,7 +43,7 @@ jQuery.fn.extend({
             nav_item_height: 100,
             next_button: true,
             autoscroll: true,
-            autoscroll_speed: 1000
+            autoscroll_speed: 5000
             
             }, options); 
 
