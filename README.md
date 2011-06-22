@@ -78,3 +78,8 @@ Stylesheets for this are required in order for the functionality to work as expe
 * adjust flexability
 * make full HTML5 Canvas version( for fun )
 
+## Demo
+
+This demo is still being built, so bear with it. till at least 1.2.0a
+
+http://zeropx.github.com/sliderton-demo/sliderton.html
