@@ -9,6 +9,10 @@
 @nav_item_width:         @nav_container_width;
 @nav_item_height:        100px;
 
+
+/*
+    Attrocious gradient for visible notice of the slides moving temp. 
+*/
 .gradient(@top:red, @bottom:blue)
 {
     /* fallback (Opera) */
@@ -28,7 +32,7 @@
     width: @slide_container_width + @nav_container_width;
     height: @nav_container_height;
     position: relative;
-/*    overflow: hidden;    */
+    overflow: hidden;    
     
     #slide-container, #slide-navigation
     {

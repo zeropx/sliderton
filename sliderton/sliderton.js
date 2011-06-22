@@ -42,7 +42,7 @@ jQuery.fn.extend({
             nav_item_width: 100,
             nav_item_height: 100,
             next_button: true,
-            autoscroll: false,
+            autoscroll: true,
             autoscroll_speed: 5000
             
             }, options); 
@@ -79,7 +79,7 @@ jQuery.fn.extend({
             array.reverse();  
             
             /* 
-            Create offset of the navigation slides to match current
+            Create an offset of the navigation slides to match current
             I'm fairly certain this is ugly. I also not sure how I came up
             with that 5 in there there. I think it has to do with the
             count of visible navigation items + visible panel slide + 1 hidden
@@ -287,7 +287,7 @@ jQuery.fn.extend({
             ctx.stroke();
             
             nextButton = $('#next-button');
-            nextButton.css('opacity', .5);
+            nextButton.css('opacity', .7);
             
         };
         
@@ -301,7 +301,7 @@ jQuery.fn.extend({
                 $(el).stop().animate({opacity: 1});
                 
             }, function() {
-                $(el).stop().animate({opacity: .4});
+                $(el).stop().animate({opacity: .7});
             });
             
             el.click(function() {

@@ -71,13 +71,15 @@ Stylesheets for this are required in order for the functionality to work as expe
 * itunes like slide play
 * has a super cool canvas button
 
-## Current Goals
+## TODO's
 
 * clean up code
 * simplify usage
 * adjust flexability
 * make full HTML5 Canvas version( for fun )
+* Create simplified stylesheets to work off of. 
 * Give both .less and .css optional css files
+
 
 ## Demo
 

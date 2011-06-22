@@ -78,6 +78,15 @@ h1, h2, h4
     font-weight: bold;
 }
 
+a:link, a:hover, a:active, a:visited
+{
+    color: #FFF;
+}
+a:hover
+{
+    color: #E0AA5C;
+}
+
 #container
 {
     width: 1100px;
