@@ -1,5 +1,8 @@
 # Slidertron
 
+**Version 1.0.0a**
+
+
 This is a slideshow to simulate iTunes' style slideshow they used. While it is no longer in use on their application. I wanted to continue to use it.
 
 This documentation is still in development and I will continue to update as I get more time. 
