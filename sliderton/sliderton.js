@@ -2,10 +2,12 @@
  * Create a slideshow style similar to itunes
  * @developer Eric Casequin
  * @date June 14 2011
+ * @version 1.0.0a
  *
  * This is a slideshow similar to itunes original store slideshow
  * The current slide will be in the large view while the optional
- * slides will be in the sidebar.
+ * slides will be in the sidebar. It uses an infinite carousel
+ * type navigation.
  * 
  * Expected usage:
  * - Slide show is auto animated on a timer
@@ -36,7 +38,10 @@ jQuery.fn.extend({
             nav_container_height: 300,
             nav_item_width: 100,
             nav_item_height: 100,
-            next_button: true
+            next_button: true,
+            autoscroll: true,
+            autoscroll_speed: 1000
+            
             }, options); 
 
         var $this        = $("#" + options.sliderton_id);
@@ -48,6 +53,8 @@ jQuery.fn.extend({
         var nextButton;
         var current;
         var previous;
+        var t;
+        
         
         var slideWrapperHeight = 0;
         var navWrapperHeight   = 0;
@@ -55,6 +62,10 @@ jQuery.fn.extend({
         // Testing wether the current browser supports the canvas element:
         var supportCanvas = 'getContext' in document.createElement('canvas');
 
+
+        /*
+            init : This is really messy and will be refactored later. 
+        */
         var init = function() 
         {
          
@@ -66,7 +77,11 @@ jQuery.fn.extend({
                  
             $(array).appendTo(navWrapper);
             
-            
+            // check to make sure we have enough of both slides
+            if (navSlides.length != slides.length) 
+            {
+                console.log("ALERT: Slides and NavSlides are not matched up, make sure both are even in count. ");
+            };
             // slides
             slides.each(function(i, el){
                 
@@ -105,16 +120,62 @@ jQuery.fn.extend({
             {
                 addNextButton();
             };
-
+            
+            if (options.autoscroll) 
+            {
+                autoscroll();
+                
+                $this.hover(function(){
+                    autoscroll('stop');
+                }, function(){
+                    autoscroll();
+                });
+            };
 
         };
+        
+        /*
+            Set auto scroll
+        */
+        var autoscroll = function(method) 
+        {
+            if(method == "stop")
+            {
+                clearTimeout(t);
+            } else {
+                
+                console.log('tick tock');
+                
+                
+                
+                t = setTimeout(function() { 
+                    autoscroll();
+                    triggerNext();
+                    }, options.autoscroll_speed);
+            }
 
+        };
+        
+        /*
+            Force next button to be clicked
+        */
+        var triggerNext = function()
+        {
+            nextButton.trigger('click');
+        };
+        
+        /*
+            adjustPositions : Adjust offset of navwrapper
+        */
         var adjustPositions = function() {
             position = 0;
             offset = options.nav_item_height;
             navWrapper.css('top', position - offset);
         };
 
+        /*
+            addNextButton : Generate the button for clicking to show next slide.
+        */
         var addNextButton = function()
         {
                                     
@@ -128,7 +189,10 @@ jQuery.fn.extend({
             addButtonEvent(nextButton); 
             
         };
-
+        
+        /*
+            This is a generic html type button if canvas wont work.
+        */
         var setupHTMLbutton = function()
         {
             nextButton = $('<div></div>')
@@ -139,7 +203,11 @@ jQuery.fn.extend({
             $this.append(nextButton.show());
 
         };
-
+        
+        
+        /*
+            Cavnas button, looks nicer :D Needs work though.
+        */
         var setupCanvasButton = function(elID)
         {
 
@@ -205,7 +273,10 @@ jQuery.fn.extend({
             nextButton.css('opacity', .5);
             
         };
-
+        
+        /*
+            Add event trigger to the button created. 
+        */
         var addButtonEvent = function(el)
         {
             el.hover(function(){
@@ -217,7 +288,7 @@ jQuery.fn.extend({
             });
             
             el.click(function() {
-                // if not currently animating
+                // prevent the button from being clicked if slideshow is animating.
                 if (animating() == false) 
                 {
                     cycle();
@@ -235,7 +306,10 @@ jQuery.fn.extend({
             return a ? true : false;
         };
         
-        
+        /*
+            This isn't really needed, but I didn't delete because
+            I may use it later for anther thought.
+        */
         var generateClones = function() 
         {
            
@@ -286,6 +360,9 @@ jQuery.fn.extend({
             slideWrapper.css('height', slideWrapperHeight + "px");
         };
 
+        /*
+            Set positions on init
+        */
         var getNavPosition = function(el)
         {
 
@@ -298,7 +375,9 @@ jQuery.fn.extend({
 
         };
 
-
+        /*
+            Get current position of SLide
+        */
         var getSlidePosition = function(el)
         {
 
@@ -311,6 +390,9 @@ jQuery.fn.extend({
 
         };
 
+        /*
+            getCurrent : Get the current visible slide
+        */
         var getCurrent = function() 
         {
             
@@ -322,6 +404,7 @@ jQuery.fn.extend({
                 current++;
             };
         };
+        
         /*
             cycle : Animates and cycle from one slide to another
         */
@@ -344,6 +427,10 @@ jQuery.fn.extend({
            
         };
         
+        /*
+            cycleNav : I used this to offset the navigation to match the slide
+                       on start. Im sure there is a better way.
+        */
         var cycleNav = function(blinded) 
         {
             var ns = $('.slide-nav');

@@ -1,8 +1,5 @@
 $(document).ready(function() {
     
-    $('#sliderton').sliderton({
-        debug: true
-    });
-
+    $('#sliderton').sliderton();
 
 });
