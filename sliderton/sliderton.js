@@ -14,6 +14,9 @@
  * - If user mouses over slideshow in any area, slide show stops
  *   when users mouse exits, timer begins again
  * 
+ * Notes:
+ * - Clean up needs to be done and a bunch of other stuff to make it 
+ *   a bit more usable.
  */
 
 jQuery.fn.extend({
