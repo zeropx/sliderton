@@ -33,63 +33,10 @@
   width: 300px;
 }
 #sliderton #slide-container .slide {
-  /* fallback (Opera) */
-
-  background: blue;
-  /* Mozilla: */
-
-  background: -moz-linear-gradient(top, green, blue);
-  /* Chrome, Safari:*/
-
-  background: -webkit-gradient(linear, left top, left bottom, from(green), to(blue));
   display: none;
   position: absolute;
   top: 0;
   left: 0;
-}
-#sliderton #slide-container .slide-1 {
-  /* fallback (Opera) */
-
-  background: red;
-  /* Mozilla: */
-
-  background: -moz-linear-gradient(top, green, red);
-  /* Chrome, Safari:*/
-
-  background: -webkit-gradient(linear, left top, left bottom, from(green), to(red));
-}
-#sliderton #slide-container .slide-2 {
-  /* fallback (Opera) */
-
-  background: white;
-  /* Mozilla: */
-
-  background: -moz-linear-gradient(top, blue, white);
-  /* Chrome, Safari:*/
-
-  background: -webkit-gradient(linear, left top, left bottom, from(blue), to(white));
-}
-#sliderton #slide-container .slide-4 {
-  /* fallback (Opera) */
-
-  background: purple;
-  /* Mozilla: */
-
-  background: -moz-linear-gradient(top, black, purple);
-  /* Chrome, Safari:*/
-
-  background: -webkit-gradient(linear, left top, left bottom, from(black), to(purple));
-}
-#sliderton #slide-container .slide-5 {
-  /* fallback (Opera) */
-
-  background: red;
-  /* Mozilla: */
-
-  background: -moz-linear-gradient(top, white, red);
-  /* Chrome, Safari:*/
-
-  background: -webkit-gradient(linear, left top, left bottom, from(white), to(red));
 }
 #sliderton #slide-navigation {
   height: 300px;
@@ -107,15 +54,6 @@
   display: block;
   height: 100px;
   width: 300px;
-  /* fallback (Opera) */
-
-  background: yellow;
-  /* Mozilla: */
-
-  background: -moz-linear-gradient(top, red, yellow);
-  /* Chrome, Safari:*/
-
-  background: -webkit-gradient(linear, left top, left bottom, from(red), to(yellow));
 }
 #sliderton .next-button-c, #sliderton .next-button {
   position: absolute;
