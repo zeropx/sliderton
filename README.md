@@ -77,6 +77,7 @@ Stylesheets for this are required in order for the functionality to work as expe
 * simplify usage
 * adjust flexability
 * make full HTML5 Canvas version( for fun )
+* Give both .less and .css optional css files
 
 ## Demo
 
