@@ -42,7 +42,7 @@ jQuery.fn.extend({
             nav_item_width: 100,
             nav_item_height: 100,
             next_button: true,
-            autoscroll: true,
+            autoscroll: false,
             autoscroll_speed: 5000
             
             }, options); 
@@ -76,16 +76,31 @@ jQuery.fn.extend({
             
             navigationSlides = $(".slide-nav");
             array = $.makeArray(navigationSlides);
-            array.reverse();       
-                 
-            $(array).appendTo(navWrapper);
+            array.reverse();  
+            
+            /* 
+            Create offset of the navigation slides to match current
+            I'm fairly certain this is ugly. I also not sure how I came up
+            with that 5 in there there. I think it has to do with the
+            count of visible navigation items + visible panel slide + 1 hidden
+            just a guess. I'll figure that out later when its time to refactor. 
+            */
+            var k = new Array();
+            var len = array.length;
+            for (var i=0; i < array.length; i++) {
+                k[((i + options.nav_items_visible + 2) % len)] = array[i];
+            };
+            
+            $(k).appendTo(navWrapper);
             
             // check to make sure we have enough of both slides
             if (navSlides.length != slides.length) 
             {
                 console.log("ALERT: Slides and NavSlides are not matched up, make sure both are even in count. ");
             };
-            // slides
+         
+            
+            // Index the slides.
             slides.each(function(i, el){
                 
                 // index all the slides and panels
@@ -109,7 +124,6 @@ jQuery.fn.extend({
                 });
                 
             };
-            cycleNav(true);
             
             current = 0;
             $(index[current].slide).fadeIn();

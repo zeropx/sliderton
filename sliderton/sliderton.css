@@ -11,7 +11,8 @@
   width: 1100px;
   height: 300px;
   position: relative;
-  overflow: hidden;
+  /*    overflow: hidden;    */
+
 }
 #sliderton #slide-container, #sliderton #slide-navigation {
   float: left;
