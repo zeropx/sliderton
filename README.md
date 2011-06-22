@@ -22,22 +22,22 @@ Stylesheets for this are required in order for the functionality to work as expe
 ## Options
 
     - **debug**
-        Outputs some details about the project to console. Default is `false`.
-        
+      Outputs some details about the project to console. Default is `false`.
+
     - **sliderton_id**
-        ID of primary container for slideshow. Default is `sliderton`.
-        
+      ID of primary container for slideshow. Default is `sliderton`.
+
     - **nav_items_visible**
-        Defines the number of visible navigation items. Default is `3`.
-        
+      Defines the number of visible navigation items. Default is `3`.
+
     - **autoscroll**
-        A boolean value to allow auto play. Default is `true`.
-        
+      A boolean value to allow auto play. Default is `true`.
+
     - **autoscroll_speed*
-        Set speed in miliseconds. Default is `5000`.
-        
+      Set speed in miliseconds. Default is `5000`.
+
     - **next_button**
-        Creates a button to be used for navigating slides. Default is `true`.
+      Creates a button to be used for navigating slides. Default is `true`.
         
 ## Full options list
 
