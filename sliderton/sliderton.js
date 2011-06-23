@@ -161,7 +161,7 @@ jQuery.fn.extend({
                 clearTimeout(t);
             } else {
                 
-                console.log('tick tock');
+                if (options.debug) { console.log('tick tock'); };
                 
                 
                 
